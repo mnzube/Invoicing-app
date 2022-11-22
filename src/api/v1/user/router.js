@@ -28,4 +28,13 @@ const signupRules = [
 ];
 route.post("/", signupRules, signup);
 
+// login
+const loginRules = [
+  body("email").notEmpty().withMessage("Email is required"),
+  body("password")
+    .notEmpty({ ignore_whitespace: true })
+    .withMessage("Password is required"),
+];
+route.post("/login", loginRules, login);
+
 module.exports = route;
